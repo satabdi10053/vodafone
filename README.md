@@ -8,7 +8,7 @@
 
 **Created Files For You :**
 
-**Creaed Files :** •	DAG: src/telecom_network_pipeline_dag.py
+**Creaed Files :** •	**DAG: src/vodafone_network_pipeline_dag.py**
 
 **Medallion Architecture Overview**
  1.**RAW Data in S3** :
@@ -46,7 +46,7 @@
      • Daily performance
      • Regional comparison
      • Hourly Trends
-     •
+     
     
     
      
