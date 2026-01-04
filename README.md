@@ -1,7 +1,60 @@
 **Title :      Take home assignment - Medior  (WIP)**
 
 
-**Description** : Youʼre part of the data engineering team at a telecom company. The company collects network performance metrics from multiple cell towers across different  regions. The data is stored daily in raw CSV files on an S3 bucket. Your task is to build an end-to-end data ingestion pipeline toprocess, validate, transform, and summarise this data into an aggregated report that can be used by the operations team.  The team also wants to check data quality within the pipeline and build monitoring around it.
+**Description** :** Below is a complete, end to end design and working for your telecom network metrics pipeline using the Medallion architecture (bronze → silver → gold), orchestrated by Apache Airflow . .
 
 **Requirements**: Python 3.9
 **Dependencies** :   For Orchestration apache-airflow , Data Processing	[pyspark, pandas , numpy]  and Storage Format	pyiceberg or delta-spark 
+
+**Created Files For You :**
+
+**Creaed Files :** •	DAG: src/telecom_network_pipeline_dag.py
+
+**Medallion Architecture Overview**
+ 1.**RAW Data in S3** :
+     Path: S3/raw-telecom-network-data/network_metrics_20250723.csv ---Nothing is validated yet, it is just the raw dump
+ 2. **Airflow S3KeySensor** 
+     Confirms the file is present
+ 3. **Bronze Layer (Raw)**
+     • Stored in S3/Iceberg
+     **Characteristics:**
+     • Append 
+     • Correct Column Types
+     **Purpose**
+     • Preserve the raw data exactly as received
+ 4. **Transformation**
+    **Timestamp Conversion:**
+     • Convert Unix timestamps to human-readable datetime.
+    **Data Quality Checks**
+     • Null Checks
+     • Duplicate Detection
+     • Schema Validation
+ 5. **Silver Layer (Cleaned)**
+     • Clean and validated rows
+     • Data type review
+     • Convert timestamp
+     • Aggregate data by region and hour:
+           Total data_volume_mb per region per hour.
+           Average signal_strength per region per hour.
+ 6. **Gold Layer (Business Aggregates)**
+     • Total data_volume_mb per region (daily)
+     • Average signal_strength per region (daily)
+
+      Final dataset used for Reporting and Dashboard.
+ 7. **Superset Dashboard**
+      Superset connects to Iceberg tables.
+     • Daily performance
+     • Regional comparison
+     • Hourly Trends
+     •
+    
+    
+     
+    
+     
+     
+          
+            
+
+
+
