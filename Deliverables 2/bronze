@@ -1,0 +1,4 @@
+tower_id,region,timestamp,signal_strength,data_volume_mb,ingestion_date,source_file,_load_ts
+101,North,1721710800,-67.5,120.4,2025-07-23,network_metrics_20250723.csv,2025-07-23T02:01:12
+102,South,1721710860,-70.1,98.2,2025-07-23,network_metrics_20250723.csv,2025-07-23T02:01:12
+103,East,1721710920,,110.0,2025-07-23,network_metrics_20250723.csv,2025-07-23T02:01:12
