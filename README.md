@@ -50,8 +50,13 @@
     
    ** Deliverable 2** : Example mock table views for bronze, silver, and gold layers (CSV or SQL)
    Bronze sample (Raw)
-   
+   Example of Bronze Path: Deliverables 2/bronze [Code]
 
+   Silver Sample (Cleaned)
+   Example of Silver Path : Deliverables 2/Silver 
+
+   Gold Sample (Business)
+   Example of Gold Path : Deliverables 2/Gold
    
      
     
