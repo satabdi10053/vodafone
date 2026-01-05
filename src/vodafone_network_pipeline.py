@@ -17,3 +17,7 @@ schema = StructType([ StructField('tower_id', IntegerType(), False),
                      StructField('timestamp', LongType(), False), 
                      StructField('signal_strength', DoubleType(), False),
                      StructField('data_volume_mb', DoubleType(), False) ])
+raw_path = f"s3://raw-telecom-network-data/network_metrics_{proc_date}.csv"
+bronze_path = f"s3://telecom-bronze/network_metrics/date={args.date}/"
+
+/*Bronze Layer*/
