@@ -29,5 +29,23 @@ bronze_df.write.mode('overwrite').option('header', True).csv(bronze_path)
 /*Silver*/
 silver_df = (raw_df
 .withColumn('event_dt', to_timestamp(from_unixtime(col('timestamp'))))
+/*Data Quality check*/
+null_any = silver_df.filter(
+col('tower_id').isNull() | col('region').isNull() | col('timestamp').isNull() |
+col('signal_strength').isNull() | col('data_volume_mb').isNull()
+).count()
+if null_any > 0:
+print(f"DataQualityError: {null_any} rows with nulls; quarantining")
+
+//Daily Aggregation//
+
+daily_agg = (silver_df.groupBy('region')
+.agg(_sum('data_volume_mb').alias('total_data_volume_mb_day'),
+avg('signal_strength').alias('avg_signal_strength_day')))
+
+/*Gold Layer*/
+
+daily_agg.writeTo('mycat.telecom.gold_network_metrics_daily').overwritePartitions()
+
 
 
