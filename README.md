@@ -1,5 +1,5 @@
 **Title :      Take home assignment - Medior  (WIP)**
-
+**Deliverable 1: ** A draft Airflow DAG or PySpark pipeline showing your design and approach
 
 **Description** :** Below is a complete, end to end design and working for your telecom network metrics pipeline using the Medallion architecture (bronze → silver → gold), orchestrated by Apache Airflow . .
 
@@ -48,7 +48,11 @@
      • Hourly Trends
      
     
-    
+   ** Deliverable 2** : Example mock table views for bronze, silver, and gold layers (CSV or SQL)
+   Bronze sample (Raw)
+   
+
+   
      
     
      
