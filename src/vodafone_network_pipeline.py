@@ -21,3 +21,13 @@ raw_path = f"s3://raw-telecom-network-data/network_metrics_{proc_date}.csv"
 bronze_path = f"s3://telecom-bronze/network_metrics/date={args.date}/"
 
 /*Bronze Layer*/
+raw_df = spark.read.csv(raw_path, header=True, schema=schema)
+bronze_df = (raw_df
+.withColumn('ingestion_date', date_format(to_timestamp(from_unixtime(col('timestamp'))),'yyyy-MM-dd'))
+bronze_df.write.mode('overwrite').option('header', True).csv(bronze_path)
+
+/*Silver*/
+silver_df = (raw_df
+.withColumn('event_dt', to_timestamp(from_unixtime(col('timestamp'))))
+
+
