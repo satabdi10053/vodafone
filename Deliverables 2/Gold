@@ -1,0 +1,4 @@
+region,event_dt,total_data_volume_mb,avg_signal_strength
+North,2025-07-23,120.4,67.5
+South,2025-07-23,98.2,70.1
+East,2025-07-23,110.0,65.0
