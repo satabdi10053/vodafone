@@ -1,1 +1,17 @@
+import json JSON
+{
+"date": "2025-07-23",
+"source_file": "network_metrics_20250723.csv",
+"checks": [
+{"name": "file_naming_pattern", "status": "PASS", "details": "Matches network_metrics_YYYYMMDD.csv"},
+{"name": "file_presence", "status": "PASS", "details": "File found in raw bucket path (simulated)"},
+{"name": "schema_validation", "status": "PASS", "details": "All required columns present"},
+{"name": "row_count", "status": "PASS", "details": "10000 rows"},
+{"name": "null_checks", "status": "PASS", "details": "0 null rows"},
+{"name": "duplicate_checks", "status": "PASS", "details": "No duplicate"},
+],
+"actions": [
+{"if_fail": "quarantine_file", "path": "s3://raw-telecom-network-data/quarantine/2025-07-23/", "notify": "teams"}
+]
+}
 
