@@ -48,7 +48,7 @@
      • Hourly Trends
      
     
-   ** Deliverable 2** : Example mock table views for bronze, silver, and gold layers (CSV or SQL)
+   ** Deliverable 2** : Example mock table views for bronze, silver, and gold layers (CSV )
    Bronze sample (Raw)
    Example of Bronze Path: Deliverables 2/bronze [Code]
 
@@ -57,6 +57,25 @@
 
    Gold Sample (Business)
    Example of Gold Path : Deliverables 2/Gold
+
+  ** Deliveravle 3 :**  Example validation logs showing errors and how they are handled
+  1. Metadata :
+     The raw file being checked first :network_metrics_20250723.csv
+  2. Checks :
+      • file naming pattern
+      • Confirming the file name matches the expected pattern -network_metrics_YYYYMMDD.csv
+      • file exist in Raw Path
+      • Ensure all required columns are present
+      • Row Count
+      • Null checks
+      • Ensure no corrupted values
+      • duplicate_checks
+  3. Action :
+      • If any check failed ,the file would be moved to a quarantine bucket
+      • notification would be sent to restpected team
+      • The pipeline would be stopped
+     
+
    
      
     
