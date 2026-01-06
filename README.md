@@ -7,7 +7,7 @@
 **Requirements**: Python 3.9
 **Dependencies** :   For Orchestration apache-airflow , Data Processing	[pyspark, pandas , numpy]  and Storage Format	pyiceberg or delta-spark 
 
-**Created Files For You :**
+**Created Files :**
 
 **Created Files :** •	**DAG: src/vodafone_network_pipeline.py**
 
